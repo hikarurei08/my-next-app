@@ -8,6 +8,9 @@ import { UserProvider } from "@/context/UserContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { FavoriteProvider } from "@/context/FavoriteContext";
 
+// 1. Import ChatWidget tetap di bagian atas
+import ChatWidget from "@/components/ChatWidget";
+
 const fontSans = localFont({
   src: [
     {
@@ -45,6 +48,9 @@ export default function RootLayout({ children }) {
                 {children}
               </main>
 
+              {/* 2. ChatWidget diletakkan di sini, di dalam <body> tepat setelah area konten utama (children) */}
+              <ChatWidget />
+
               <Footer />
             </FavoriteProvider>
           </AuthProvider>
@@ -52,4 +58,4 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}
+} 
